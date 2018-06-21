@@ -28,21 +28,7 @@ for line in fo.readlines():
     else:
         flag.append(rate)
         item_dict[item] = flag
-    # avg += int(datas[2])
-    # count += 1
 
-# avg_list = []
-# for uid in range(u_i.shape[0]):
-#     total = 0
-#     count = 0
-#     for item in range(u_i.shape[1]):
-#         if u_i[uid][item] == 0:
-#             continue
-#         total += u_i[uid][item]
-#         count += 1
-#     avg = total / count
-#     avg_list.append(avg)
-# print('avg:', avg_list)
 fo.close()
 
 # 计算平均值
@@ -90,38 +76,26 @@ for line in fo.readlines():
     for i in range(1182):
         p = i_p[item - 1][i]
         rating = u_i[user - 1][i]
-        # if p <= -0.5:
-        #     continue
-        # rating = rating - item_avg[i]
         sum_rate += p * rating
         total_sim += abs(p)
     if total_sim == 0:
         result = item_avg[item - 1] * 0.5 + user_avg[user - 1] * 0.5
-        # result = result/5
-        # print("user:", user, "item:", item, "avg:", result * 5)
-        # result = 0
-        # sum_rate = avg
-        print("avg rate:", result, "true rate:", rate)
+        # print("avg rate:", result, "true rate:", rate)
     else:
         result = sum_rate/total_sim + item_avg[item - 1]
         if result < 1:
             result = 1
         if result > 5:
             result = 5
-        print("result rate:", result, "true rate:", round(rate))
+        # print("result rate:", result, "true rate:", round(rate))
     pre_rating.append(result)
 
 sum_abs = 0
 i = 0
-# MIN = min(pred_rating)
-# MAX = max(pred_rating)
 for r in pre_rating:
-    # r = (r - MIN) / (MAX - MIN)
-    # print("predict:", r * 5)
-    # print('predict rate:', r * 5, 'true rate:', true_rating[i])
     sum_abs += abs(true_rating[i] - r)
     i += 1
 
 mae = sum_abs / i
-# print("sum_abs:", sum_abs)
 print('mae:', mae)
+

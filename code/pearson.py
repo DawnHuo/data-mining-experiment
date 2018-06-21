@@ -46,10 +46,6 @@ for key1, value1 in d.items():
         else:
             s = str(key1) + ',' + str(key2) + ',' + str(p[0])
             pearson.append(s)
-        # if len(rlist1) == 0:
-        #     pearson.append([key1, key2, 0])
-        # else:
-        #     pearson.append([key1, key2, pearsonr(rlist1, rlist2)[0]])
 
 for p in pearson:
     s = str(p) + "\n"
