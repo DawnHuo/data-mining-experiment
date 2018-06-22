@@ -2,6 +2,10 @@ import numpy as np
 from scipy.stats import pearsonr
 import math
 
+# def cal_pearson():
+
+
+
 path = '../data/trainingData.txt'
 data = np.loadtxt(path, dtype=int, delimiter=',')
 path = '../data/pearson.txt'
